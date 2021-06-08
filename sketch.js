@@ -1,91 +1,37 @@
-var starImg,bgImg;
-var star, starBody;
-var fairy, fairyImg
-//create variable for fairy sprite and fairyImg
+var canvas, backgroundImage;
 
-const Engine = Matter.Engine;
-const World = Matter.World;
-const Bodies = Matter.Bodies;
-const Body = Matter.Body;
+var gameState = 0;
+var contestantCount;
+var allContestants;
+var answer;
+var database;
 
-function preload()
-{
-	starImg = loadImage("images/star.png");
-	fairyImg = loadAnimation("images/fairyImage1.png","images/fairyImage2.png");
-	bgImg = loadImage("images/starNight.png");
-	fairyVoice = loadSound("sound/JoyMusic.mp3");
+var question, contestant, quiz;
 
 
-}
-
-function setup() {
-	createCanvas(800, 750);
-
-	//write code to play fairyVoice sound
-	//fairyVoice.play();
-	//create fairy sprite and add animation for fairy
-	fairy = createSprite(130, 520);
-	fairy.addAnimation("fairyflying",fairyImg);  
-	fairy.scale = 0.25;
-
-	star = createSprite(650,30);
-	star.addImage(starImg);
-	star.scale = 0.2;	
-
-
-	star = createSprite(650,30);
-	star.addImage(starImg);
-	star.scale = 0.2;
-
-
-	engine = Engine.create();
-	world = engine.world;
-
-	starBody = Bodies.circle(650 , 30 , 5 , {restitution:0.5, isStatic:true});
-	World.add(world, starBody);
-	
-	Engine.run(engine);
-
+function setup(){
+  canvas = createCanvas(850,400);
+  database = firebase.database();
+  quiz = new Quiz();
+  quiz.getState();
+  quiz.start();
 }
 
 
-function draw() {
-  background(bgImg);
+function draw(){
+  background("pink");
+  if(contestantCount === 2){
+    quiz.update(1);
+  }
+  if(gameState === 1){
+    clear();
+    quiz.play();
+  }
 
-  star.x= starBody.position.x 
-  star.y= starBody.position.y
-  
-  
-  	if(star.y > 470 && starBody.position.y > 470)
-	{
-		Matter.Body.setStatic(starBody, true)
-	}
+  if(allContestants !== undefined){
+    fill("blue");
+    textSize(20);
+    text("*NOTE: Contestants who answered correct are highlighted in green color!", 150, 230);
 
-  console.log(star.y);
-
-  //write code to stop star in the hand of fairy
-
-  
-
-  drawSprites();
-
-}
-
-function keyPressed() {
-
-	if (keyCode === DOWN_ARROW) 
-	{
-		Matter.Body.setStatic(starBody,false); 
-	}
-
-	//writw code to move fairy left and right
-	if(keyCode === RIGHT_ARROW)
-	{
-		fairy.x = fairy.x+20
-	}
-	if(keyCode === LEFT_ARROW)
-	{
-		fairy.x = fairy.x-20
-	}
-	
+  }
 }

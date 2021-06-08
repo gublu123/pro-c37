@@ -1,24 +1,16 @@
 <!DOCTYPE html>
-  <html lang="">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Fairy and Star</title>
-      <style> body {padding: 0; margin: 0;} </style>
-      <script src="matter.js"></script>
-      <script src="p5.js"></script>
-      <script src="p5.play.js"></script>
-      <script src="p5.sound.js"></script>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MyQuiz Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <script src="p5.play.js"></script>
 
-      <script src="sketch.js"></script>
-      <script src="Quiz.js"></script>
-
-    </head>
-    <body>
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
-
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -26,16 +18,24 @@
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyB75EGp3mU8tp5VxcmLrnOwrldNQmLD03A",
-    authDomain: "myquiz-game-c8b1a.firebaseapp.com",
-    databaseURL: "https://myquiz-game-c8b1a-default-rtdb.firebaseio.com",
-    projectId: "myquiz-game-c8b1a",
-    storageBucket: "myquiz-game-c8b1a.appspot.com",
-    messagingSenderId: "684778143113",
-    appId: "1:684778143113:web:329a82ab0786a1f0613558"
+    apiKey: "AIzaSyD5RCGk_e5m_iC2mhGjlBcsGSH0qTqsyvA",
+    authDomain: "myquizgame-d3006.firebaseapp.com",
+    databaseURL: "https://myquizgame-d3006-default-rtdb.firebaseio.com",
+    projectId: "myquizgame-d3006",
+    storageBucket: "myquizgame-d3006.appspot.com",
+    messagingSenderId: "193295899763",
+    appId: "1:193295899763:web:4a0c8894944e021c471e06"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 </script>
-    </body>
-  </html>
+
+    <script src="js/Contestant.js"></script>
+    <script src="js/Question.js"></script>
+    <script src="js/Quiz.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+  </body>
+</html>
